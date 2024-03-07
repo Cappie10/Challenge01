@@ -1,0 +1,18 @@
+name: Triggers
+run-name: Trigger schedule
+on:
+    schedule:
+      - cron: '48,50,52 10 * * 5'
+
+jobs:
+  trigger_hello_world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Hello World workflow
+        uses: octokit/request-action@v2
+        with:
+            route: POST /repos/:owner/:repo/actions/workflows/:workflow_id/dispatches
+            owner: ${{ github.repository_owner }}
+            repo: ${{ github.event.repository.name }}
+            workflow_id: hola-mundo.yml
+            token: ${{ secrets.GITHUB_TOKEN }}  
