@@ -4,5 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-     - name: print
-       run: python3 hello-world.py
+      - name: Checkout code
+        uses: actions/checkout@v2
+ 
+      - name: Run Python script
+        run: python3 hello-world.py
