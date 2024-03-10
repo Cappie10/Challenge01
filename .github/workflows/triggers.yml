@@ -1,8 +1,11 @@
 name: Triggers
 run-name: Trigger schedule
 on:
-    schedule:
-      - cron: '48,50,52 10 * * 5'
+    # push:
+    #     branches:
+    #         - feat/testing
+  schedule:
+    - cron: '30 22 * * *'
 
 jobs:
   trigger_hello_world:
