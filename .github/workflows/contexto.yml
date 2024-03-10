@@ -1,0 +1,9 @@
+name: Contexto
+on: push
+jobs:
+  check-branch:
+	if: ${{ github.ref == 'refs/heads/feat/testing' }}
+	runs-on: ubuntu-latest
+	steps:
+      - name: Context test 
+	    run : echo "Desplegando en la rama $GITHUB_REF"
